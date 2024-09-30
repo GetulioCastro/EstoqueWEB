@@ -1,7 +1,16 @@
+using EstoqueWEB.Infraestrutura.Dados;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<EstoqueContext>((optionsAction) =>
+{
+    var connString = builder.Configuration.GetConnectionString("EstoqueConnection");
+    optionsAction.UseSqlServer(connString);
+});
 
 var app = builder.Build();
 
