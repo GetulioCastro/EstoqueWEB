@@ -10,16 +10,26 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index">Página Inicial</a>
+                        <a class="nav-link text-light" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-page="/Index">Página Inicial</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Cadastro">Cadastros</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" asp-area="" asp-page="/Cadastro">Cadastros</a>
+                        <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
+                            <li class="dropdown-item" asp-page="/Categorias/Index">Categorias</li>
+                            <li class="dropdown-item" asp-page="/Produtos/Index">Produtos</li>
+                            <li class="dropdown-item" asp-page="/Fornecedores/Index">Fornecedores</li>
+                            <li class="dropdown-item" asp-page="/Clientes/Index">Clientes</li>
+                            <li class="dropdown-item" asp-page="/Endereços/Index">Endereços</li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Relatorios">Relatórios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Movimentacoes">Movimentações</a>
+                    </li>
+                    <li class="nav-item text-end">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Login">Login</a>
                     </li>
                 </ul>
             </div>
