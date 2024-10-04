@@ -10,28 +10,33 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-light" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-page="/Index">Página Inicial</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Index">Página Inicial</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" asp-area="" asp-page="/Cadastro">Cadastros</a>
-                        <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
-                            <li class="dropdown-item" asp-page="/Categorias/Index">Categorias</li>
+                        <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-page="/Cadastro">Cadastros</a>
+                        <ul class="dropdown-menu">                         
                             <li class="dropdown-item" asp-page="/Produtos/Index">Produtos</li>
                             <li class="dropdown-item" asp-page="/Fornecedores/Index">Fornecedores</li>
                             <li class="dropdown-item" asp-page="/Clientes/Index">Clientes</li>
-                            <li class="dropdown-item" asp-page="/Endereços/Index">Endereços</li>
+                            <li class="dropdown-item" asp-page="/Enderecos/Index">Endereços</li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li class="dropdown-item" asp-page="/Categorias/Index">Categorias</li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Relatorios">Relatórios</a>
+                        <a class="nav-link disabled" asp-area="" asp-page="/Relatorios">Relatórios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Movimentacoes">Movimentações</a>
-                    </li>
-                    <li class="nav-item text-end">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Login">Login</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-page="/Movimentacoes">Movimentações</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item" asp-page="/Movimentacoes/Entradas">Entradas</li>
+                            <li class="dropdown-item" asp-page="/Movimentacoes/Saidas">Saídas</li>
+                        </ul>
                     </li>
                 </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-light">Login</button>
+                </div>
             </div>
         </div>
     </nav>
