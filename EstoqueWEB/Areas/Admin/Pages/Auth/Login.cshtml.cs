@@ -9,14 +9,20 @@ namespace EstoqueWEB.Areas.Admin.Pages.Auth
 {
     public class LoginModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Pages/Index");
+            }
+
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(
-            [FromForm] LoginFormModel loginform)
+            [FromForm] LoginFormModel loginForm)
         {
-            if (loginform.Username != "admin" && loginform.Password != "1234")
+            if (loginForm.Username != "admin" && loginForm.Password != "1234")
             {
                 ViewData["Fail"] = true;
                 return Page();
@@ -43,12 +49,12 @@ namespace EstoqueWEB.Areas.Admin.Pages.Auth
                 principal, 
                 new AuthenticationProperties
             {
-                IsPersistent = loginform.RememberMe
+                IsPersistent = loginForm.RememberMe
             });
 
-            if (!String.IsNullOrWhiteSpace(loginform.ReturnUrl))
+            if (!String.IsNullOrWhiteSpace(loginForm.ReturnUrl))
             {
-                return Redirect(loginform.ReturnUrl);
+                return Redirect(loginForm.ReturnUrl);
             }
 
             return RedirectToPage("/Pages/Index");
