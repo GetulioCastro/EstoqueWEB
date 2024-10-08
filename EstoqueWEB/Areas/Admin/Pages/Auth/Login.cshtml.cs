@@ -13,7 +13,7 @@ namespace EstoqueWEB.Areas.Admin.Pages.Auth
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToPage("/Pages/Index");
+                return RedirectToPage("/Index");
             }
 
             return Page();
@@ -57,7 +57,7 @@ namespace EstoqueWEB.Areas.Admin.Pages.Auth
                 return Redirect(loginForm.ReturnUrl);
             }
 
-            return RedirectToPage("/Pages/Index");
+            return RedirectToPage("/Index");
         }
     }
 }

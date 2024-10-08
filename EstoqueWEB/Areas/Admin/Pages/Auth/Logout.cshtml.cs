@@ -11,7 +11,7 @@ namespace EstoqueWEB.Areas.Admin.Pages.Auth
         public async Task<IActionResult> OnGetAsync()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Auth/Login");
+            return RedirectToPage("/Auth/Login");
         }
     }
 }

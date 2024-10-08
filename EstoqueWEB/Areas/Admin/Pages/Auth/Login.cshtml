@@ -41,7 +41,7 @@
                                         <div class="alert alert-danger">Usuário ou Senha, inválidos</div>
                                     }
                                     <!-- Login form-->
-                                    <form method="post" asp-area="Admin" asp-action="/Auth/Login">
+                                    <form method="post" asp-area="Admin" asp-page="/Auth/Login">
                                         <input type="hidden" name="ReturnUrl" value="@Request.Query["ReturnUrl"]" />
                                         <!-- Form Group (email address)-->
                                         <div class="mb-3">
