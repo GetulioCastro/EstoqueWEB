@@ -6,7 +6,7 @@
 
 <h1>Cadastro de Categorias</h1>
 
-<form class="form-control">
+@* <form class="form-control">
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Criar Categoria</button>
     </div>
@@ -18,4 +18,49 @@
         <label for="formCadCategoriaDesc" class="form-label">Descrição da Categoria</label>
         <textarea class="form-control" id="formCadCategoriaDesc" rows="3"></textarea>
     </div>
+</form> *@
+<!-- Formulário para criar/editar categoria -->
+<form method="post" class="form-control">
+    <div class="form-group">
+        <label asp-for="Categoria.Nome"></label>
+        <input asp-for="Categoria.Nome" class="form-control" />
+        <span asp-validation-for="Categoria.Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Categoria.Descricao"></label>
+        <input asp-for="Categoria.Descricao" class="form-control" />
+        <span asp-validation-for="Categoria.Descricao" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
+
+<hr />
+
+<!-- Lista de categorias -->
+<h3>Categorias</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model.Categorias)
+        {
+            <tr>
+                <td>@categoria.Nome</td>
+                <td>@categoria.Descricao</td>
+                <td>
+                    <a asp-page="./CategoriaForm" asp-route-id="@categoria.Id" class="btn btn-warning">Alterar</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@categoria.Id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
